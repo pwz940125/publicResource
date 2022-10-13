@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:overScrollMode="never"
+    android:background="#dbdbdb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_gravity="center">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+        tools:context=".MainActivitymsxz">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/car1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_number">
+
+            <TextView
+                android:id="@+id/tv_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:text="返回"
+                android:textColor="#373737"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.99"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="100dp" />
+
+            <TextView
+                android:id="@+id/tv_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择系统模式"
+                android:textColor="#373737"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                app:layout_constraintBottom_toTopOf="@id/tv_data"
+                app:layout_constraintEnd_toEndOf="@id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_value" />
+
+            <TextView
+                android:id="@+id/tv_data"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="请您根据当前所在卡口位置选择"
+                android:textColor="#A6A6A6"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guideline"
+                app:layout_constraintHorizontal_bias="0.328"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/tv_hour" />
+        </android.support.constraint.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/car2"
+            android:layout_width="0dp"
+            android:layout_height="118dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/white_round_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/car1">
+
+            <ImageView
+                android:id="@+id/iv_one"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/jiantou" />
+
+            <TextView
+                android:id="@+id/iv_one_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="入城卡口"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                android:textColor="#3B3B3B"
+                android:textSize="28sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/car3"
+            android:layout_width="0dp"
+            android:layout_height="118dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/white_round_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/car2">
+
+            <ImageView
+                android:id="@+id/iv_two"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/yuxing" />
+
+            <TextView
+                android:id="@+id/iv_two_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="出城卡口"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                android:textColor="#3B3B3B"
+                android:textSize="28sp" />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/car4"
+            android:layout_width="0dp"
+            android:layout_height="118dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/white_round_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/car3">
+
+            <ImageView
+                android:id="@+id/iv_three"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/shexiangtou" />
+
+            <TextView
+                android:id="@+id/iv_three_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="监控管理"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                android:textColor="#3B3B3B"
+                android:textSize="28sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/car5"
+            android:layout_width="0dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/car4">
+        <TextView
+            android:id="@+id/tv_qdxz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shapety"
+            android:gravity="center"
+            android:paddingTop="12dp"
+            android:paddingBottom="15dp"
+            android:text="确定选择"
+            android:textColor="#A6A6A6"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
