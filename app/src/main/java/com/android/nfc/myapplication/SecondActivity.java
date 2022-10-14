@@ -1,18 +1,15 @@
 package com.android.nfc.myapplication;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemChildClickListener;
-import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.android.nfc.myapplication.adapter.BaseRecyclerViewAdapter;
+import com.android.nfc.myapplication.adapter.ReleaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,39 +40,29 @@ public class SecondActivity extends AppCompatActivity {
             bean.setRelease(false);
             data.add(bean);
         }
+        BaseRecyclerViewAdapter mAdapter = new BaseRecyclerViewAdapter(this,data,R.layout.layout_item_release, ReleaseViewHolder.class);
         mRc.setLayoutManager(new LinearLayoutManager(this));
         mRc.addItemDecoration(new SpaceItemDecoration(0,DisplayUtil.dp2px(20),true));
         mRc.setAdapter(mAdapter);
-        mAdapter.setNewInstance(data);
         mAdapter.addChildClickViewIds(R.id.tv_release);
-        mAdapter.setOnItemChildClickListener((adapter, view, position) -> {
-            if (view.getId() == R.id.tv_release){
-                CheckDialog checkDialog = new CheckDialog(this,data.get(position));
-                checkDialog.setClick(new CheckDialog.OnReleaseClick() {
-                    @Override
-                    public void onReleaseClick() {
-                        Toast.makeText(view.getContext(),"已放行",Toast.LENGTH_SHORT).show();
-                    }
-                });
-                checkDialog.show();
+        mAdapter.setOnItemChildClickListener(new BaseRecyclerViewAdapter.onItemChildClickListener() {
+            @Override
+            public void onChildItemClick(Object itemData, View view, int position) {
+                if (view.getId() == R.id.tv_release){
+                    CheckDialog checkDialog = new CheckDialog(SecondActivity.this,data.get(position));
+                    checkDialog.setClick(new CheckDialog.OnReleaseClick() {
+                        @Override
+                        public void onReleaseClick() {
+                            Toast.makeText(view.getContext(),"已放行",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    checkDialog.show();
+                }
             }
         });
     }
 
-    private BaseQuickAdapter<ReleaseBean , BaseViewHolder> mAdapter = new BaseQuickAdapter<ReleaseBean, BaseViewHolder>(R.layout.layout_item_release) {
-        @Override
-        protected void convert(BaseViewHolder holder, ReleaseBean bean) {
-            holder.setText(R.id.tv_admin,bean.getAdmin());
-            holder.setText(R.id.tv_license_plate,bean.getLicense());
-            holder.setText(R.id.tv_id_card_value,bean.getIdCard());
-            holder.setText(R.id.tv_phone_number,bean.getPhone());
-            holder.setText(R.id.tv_person_num,bean.getPersons()+"人");
-            holder.setText(R.id.tv_transit_checkpoint_value,bean.getCheckPoint());
-            holder.setText(R.id.tv_entry_time_value,bean.getEntryTime());
-            holder.setText(R.id.tv_delay_time,String.format(getString(R.string.delayTime),bean.getDelayTime()));
-            holder.setTextColor(R.id.tv_delay_time,bean.getDelayTime()<5? Color.parseColor("#009688"):Color.parseColor("#FF0000"));
-        }
-    };
+
     private void initView() {
         mRc = findViewById(R.id.rc);
     }
